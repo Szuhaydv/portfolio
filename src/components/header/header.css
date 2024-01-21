@@ -2,13 +2,19 @@ header {
   position: fixed;
   height: 10vh;
   width: 100%;
-  display: flex;
   background-color: white;
-  justify-content: space-around;
   z-index: 100;
   font-family: 'Kanit';
+}
+  
+.header-links {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
+
 header a {
   text-decoration: none;
   color: black;
@@ -27,4 +33,43 @@ header h2:hover {
 }
 header h2:active {
   background-color: #504c4c;
+}
+
+.hamburger {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  margin-left: 7%;
+  cursor: pointer;
+}
+.hamburger i {
+  font-size: 50px;
+}
+.hamburger-nav {
+  overflow: hidden;
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  top: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+  padding-top: 30px;
+}
+
+.showHamburgerMenu {
+  height: calc(100vh - 100px) !important
+}
+
+@media only screen and (max-width: 480px) {
+  .hamburger {
+    display: flex
+  }
+
+  .header-links {
+    display: none !important
+  }
 }
