@@ -25,92 +25,15 @@ body {
   position: relative;
   background-color: #222;
 }
-.hero {
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-.text-diseappear {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.hello-text-container {
-  width: 10%;
-  position: absolute;
-  left: 33%;
-  top: 20%;
-  font-size: 3vw;
-  display: flex;
-  z-index: 90;
-}
-.title-text-container, .special-title-text {
-  width: 35%;
-  font-size: 3vw;
-  position: absolute;
-  display: flex;
-  top: 20%;
-  left: 58%;
-  z-index: 90;
-}
-.cursor {
-  width: 0.2rem;
-  height: 75%;
-  background-color: black;
-  margin-left: 0.5rem;
-}
-header {
-  position: fixed;
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  background-color: white;
-  justify-content: space-evenly;
-  z-index: 100;
-  font-family: 'Kanit';
-  align-items: center;
-}
-header a {
-  text-decoration: none;
-  color: black;
-  scroll-behavior: smooth;
-}
-
-header h2 {
-  cursor: pointer;
-  padding: 0.5vw 1vw;
-  border-radius: 2vw;
-}
-
-header h2:hover {
-  background: #222;
-  color: white;
-}
-header h2:active {
-  background-color: #504c4c;
-}
 .skills {
   position: absolute;
   top: 40vh;
 }
 .bg-dock {
-  height: 80vh;
+  max-height: 80vh;
   width: 100%;
   position: absolute;
   z-index: 15;
-}
-.bg-dock img {
-  height: 100%;
-  width: 100%;
-}
-.bg-background {
-  width: 100%;
-  z-index: 14;
-  transform: translateY(5%);
 }
 
 main {
@@ -475,7 +398,7 @@ main .icons-extras {
 }
 .project-showcase-container {
   width: 48vw;
-  height: 27vw;
+  height: 28.3vw;
   margin: 0;
   padding: 0;
   top: 30vh;

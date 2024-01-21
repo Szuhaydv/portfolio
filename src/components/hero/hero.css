@@ -1,0 +1,56 @@
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.text-diseappear {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.hello-text-container {
+  width: 10%;
+  position: absolute;
+  left: 33%;
+  top: 20%;
+  font-size: 3vw;
+  display: flex;
+  z-index: 90;
+}
+.title-text-container, .special-title-text {
+  width: 35%;
+  font-size: 3vw;
+  position: absolute;
+  display: flex;
+  top: 20%;
+  left: 58%;
+  z-index: 90;
+}
+.cursor {
+  width: 0.2rem;
+  height: 75%;
+  background-color: black;
+  margin-left: 0.5rem;
+}
+.bg-dock {
+  max-height: 80vh;
+  width: 100%;
+  position: absolute;
+  z-index: 15;
+}
+.bg-dock img {
+  max-height: 80vh;
+  width: 100%;
+  max-width: 100vw;
+}
+.bg-background {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  z-index: 14;
+  transform: translate(0, -50%);
+}

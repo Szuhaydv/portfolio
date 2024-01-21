@@ -1,0 +1,30 @@
+header {
+  position: fixed;
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  justify-content: space-around;
+  z-index: 100;
+  font-family: 'Kanit';
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+  color: black;
+  scroll-behavior: smooth;
+}
+
+header h2 {
+  cursor: pointer;
+  padding: 0.5vw 1vw;
+  border-radius: 2vw;
+}
+
+header h2:hover {
+  background: #222;
+  color: white;
+}
+header h2:active {
+  background-color: #504c4c;
+}

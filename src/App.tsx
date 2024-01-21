@@ -1,10 +1,12 @@
 import { Variants, motion, useInView, useScroll, useTransform } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
+import Header from "./components/header/Header"
+import Hero from "./components/hero/Hero"
 
 function App() {
 
-  const textsArray = ["Hello,".split(""), "my name is David!".split(""), "I'm a Web Developer".split(""), "Nice to meet you!".split("")]
+  
   const firstThreeRef = useRef(null)
 
   const { scrollYProgress } = useScroll({
@@ -25,7 +27,7 @@ function App() {
   const characterScroll = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", "-100%"]
+    ["0%", "100%"]
   )
   const nextSectionScroll = useTransform(
     scrollYProgress,
@@ -33,35 +35,8 @@ function App() {
     ["0%", "-50%"]
   )
 
-  const [helloStart, setHelloStart] = useState(false)
-  const [animationStart, setAnimationStart] = useState(false)
-  const [animationEnd, setAnimationEnd] = useState(true)
-  const [animation2Start, setAnimation2Start] = useState(false)
-  const [animation2End, setAnimation2End] = useState(true)
-  const [animation3Start, setAnimation3Start] = useState(false)
-  const [helloCursor, setHelloCursor] = useState(true)
-  const [cursor3Start, setCursor3Start] = useState(false)
-  const cursorRef = useRef<any>(null)
-  const animationValues = {
-    hide: {
-      display: "none"
-    },
-    show: {
-      display: "inline"
-    }
-  }
-  const cursorAnimation = {
-    blinking: {
-      opacity: [0, 1, 1, 0],
-      transition: {
-        duration: 1,
-        repeat: Infinity,
-        repeatDelay: 0,
-        ease: "linear",
-        times: [0, 0.33, 0.66, 1]
-      }
-    }
-  }
+  
+  
   const iconAnimation = {
     hideIcons: {
       scale: 0
@@ -71,11 +46,7 @@ function App() {
       rotate: [0, 5, 0, 0]
     }
   }
-  useEffect(() => {
-    if (!helloCursor && cursorRef.current != null) {
-      cursorRef.current.style.display = "none"
-    }
-  }, [helloCursor])
+
   
   const iconFoundationRef = useRef(null)
   const iconFoundationInView = useInView(iconFoundationRef, { amount: 1, once: true })
@@ -167,96 +138,11 @@ function App() {
     <div className="sections" id="home">
       <div className="skills" id="skills"></div>
       <div className="projects-detector" id="projects"></div>
-      <header>
-        <a href="#home">
-          <h2>Home</h2>
-        </a>
-        <a className="scroll-padding-link" href="#skills">
-          <h2>Skills</h2>
-        </a>
-        <a className="scroll-padding-link-projects" href="#projects">
-          <h2>Projects</h2>
-        </a>
-        <a className="scroll-padding-link" href="#contact">
-          <h2>Contact</h2>
-        </a>
-      </header>
+      <Header />
       <div ref={firstThreeRef} className="first-three">
-        <motion.section style={{ y: sectionScroll }} className="hero">
-          <img className="bg-background" src="/Mountain.svg" alt="Mountains in the background" />
-          <motion.div className="bg-dock" style={{ y: characterScroll }}>
-            <img src="/Dock.svg" alt="Person on a dock" />
-          </motion.div>
-          <motion.div style={{ opacity: opacity2}} className="text-disappear" >
-            <div className="hello-text-container">
-              {
-                helloStart &&
-              <motion.p 
-              onAnimationComplete={() => {
-                setHelloCursor(false)
-                setAnimationEnd(false)
-              }} 
-              transition={{ staggerChildren: 0.03 }} initial="hide" animate="show" className="hello-text">
-                {textsArray[0].map((char, index) => (
-                    <motion.span key={index} variants={animationValues}>{char}</motion.span>
-                  )
-                )}
-              </motion.p>
-              }
-              <motion.div ref={cursorRef} animate="blinking" variants={cursorAnimation} onAnimationStart={() => setTimeout(() => setHelloStart(true), 500)} className="cursor">&nbsp;</motion.div>
-            </div>
-            <div className="title-text-container">
-              {!animationEnd && 
-                animationStart &&
-                <motion.p 
-                  transition={{ staggerChildren: 0.03}} 
-                  onAnimationComplete={() => {
-                    setTimeout(() => {
-                      setAnimationEnd(true)
-                      setAnimation2End(false)
-                    }, 2500)
-                  }} 
-                  initial="hide" animate="show" className="title-text">{
-                    textsArray[1].map((char, index) => (
-                      <motion.span key={index} variants={animationValues}>{char}</motion.span>
-                    )  
-                  )
-                }</motion.p>
-              }&nbsp;
-              {!animationEnd && <motion.div animate="blinking" variants={cursorAnimation} onAnimationStart={() => setTimeout(() => setAnimationStart(true), 100)} className="cursor">&nbsp;</motion.div>}
-            </div>
-            <div className="title-text-container">
-              {!animation2End && 
-                animation2Start &&
-                <motion.p 
-                  transition={{ staggerChildren: 0.03}} 
-                  onAnimationComplete={() => setTimeout(() => {
-                    setAnimation2End(true)
-                    setCursor3Start(true)
-                  }, 2500)} 
-                  initial="hide" animate="show" className="title-text">{
-                    textsArray[2].map((char, index) => (
-                      <motion.span key={index} variants={animationValues}>{char}</motion.span>
-                    )  
-                  )
-                }</motion.p>
-                
-              }
-              {!animation2End && <motion.div animate="blinking" variants={cursorAnimation} onAnimationStart={() => setTimeout(() => setAnimation2Start(true), 100)} className="cursor">&nbsp;</motion.div>}
-            </div>
-            <div className="title-text-container">
-              {animation3Start &&
-                <motion.p initial="hide" animate="show" transition={{ staggerChildren: 0.03 }} className="title-text">{textsArray[3].map((char, index) => (
-                  <motion.span key={index} variants={animationValues}>{char}</motion.span>
-                ))}</motion.p>
-              }&nbsp;
-              {cursor3Start && <motion.div animate="blinking" variants={cursorAnimation} onAnimationStart={() => setTimeout(() => setAnimation3Start(true), 100)} className="cursor">&nbsp;</motion.div>}
-            </div>
-          </motion.div>
-          
-        </motion.section>
-        <motion.main style={{ y: sectionScroll }}>
-          <motion.div style={{ y: nextSectionScroll }} className="main-parallax">
+        <Hero value={{ opacity2, sectionScroll, characterScroll }} />
+        <motion.main style={{ }}>
+          <motion.div style={{ bottom: characterScroll }} className="main-parallax">
             <motion.div onViewportEnter={() => setProjectsInView(false)} className="detector-2"></motion.div>
               <div className="topcontainer">
                 <motion.div className="foundation-version-headings">
@@ -354,7 +240,7 @@ function App() {
           </motion.div>
         </motion.main>
       </div>
-      <motion.div variants={showcaseAnimate} transition={{duration: 0.5}} initial="relativeContainer" animate={projectsInView ? "fixedContainer" : contactInView ? "absoluteContainer" : "staticContainer"} className="project-showcase-container">
+      {/* <motion.div variants={showcaseAnimate} transition={{duration: 0.5}} initial="relativeContainer" animate={projectsInView ? "fixedContainer" : contactInView ? "absoluteContainer" : "staticContainer"} className="project-showcase-container">
       <iframe width="100%" height="100%" src={videoURLs[videoURLNo]} allowFullScreen title="Mapex Demo"></iframe>
       </motion.div>
       <motion.section style={{y: sectionScroll}} className="projects">
@@ -464,7 +350,7 @@ function App() {
           </div>
           <motion.img initial={{ y: 70, opacity: 0}} animate={frameInView ? {y: 0, opacity: 1} : {}} transition={{ stiffness: 100, delay: 0.25, duration: 1, type: "backInOut"}} viewport={{amount: 1, once: true}} className="bottom-frame" src="/bottom-frame.svg" alt="" />
         </div>
-      </motion.section>
+      </motion.section> */}
     </div>
   )
 }
