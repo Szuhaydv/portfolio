@@ -206,6 +206,9 @@ main .icons-extras {
   border-radius: 20px;
   margin-top: 16px
 }
+.email span:active {
+  background-color: rgb(220, 218, 213);
+}
 .email-heading {
   cursor: pointer
 }
@@ -279,6 +282,8 @@ main .icons-extras {
 @media only screen and (max-width: 600px) {
   .topcontainer {
     width: 100% !important;
+    background-color: #222 !important;
+    color: white;
     height: 100% !important;
     border-radius: 0 !important;
     gap: 10vh !important;
@@ -291,5 +296,6 @@ main .icons-extras {
   }
   .email span {
     font-size: 26px;
+    color: black;
   }
 }

@@ -153,118 +153,11 @@ body {
   width: 100.76%;
   margin-left: -0.1rem
 }
-.projects {
-  width: 100%;
-  height: 270vh;
-  background-color: green;
-  margin-top: 60vh;
-  position: relative;
-  z-index: 10;
-}
 .projects-detector {
   position: absolute;
   top: 75vw;
-}
-.project-1 {
-  height: 90vh;
-  position: relative;
-  padding: 2rem;
-}
-.project-2 {
-  height: 80vh;
-  padding: 2rem;
-}
-.project-3
-{
-  height: 90vh;
-  padding: 2rem;
-  position: relative;
-}
-
-.projects h2 {
-  font-size: 4.5vw;
-  border: 1px solid #222;
-  padding: 0.3rem 0.6rem;
-  border-radius: 1rem;
-  width: max-content;
-  position: absolute;
-}
-.project-desciption {
-  padding: 2rem;
-  width: calc(52% - 2rem);
-}
-.projects h3 {
-  font-size: 3vw;
-  font-weight: 700;
-}
-.projects p {
-  font-size: 3vw;
-}
-.project-name-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4vw;
-}
-.project-info-container {
-  margin-top: 15vh;
-  display: flex;
-}
-.project-info-container .icon-container {
-  margin-left: 3vw;
-  width: 5vw;
-  height: 5vw;
-}
-.project-showcase-container {
-  width: 48vw;
-  height: 28.3vw;
-  margin: 0;
-  padding: 0;
-  top: 30vh;
-  left: 2rem;
-  z-index: 100;
-  position: absolute;
-}
-.project-showcase-container iframe {
-  border-radius: 0.2rem;
-  height: 100%;
-  max-width: 100%;
-}
-.take-space {
-  width: 48vw;
-  padding: 0;
-  margin: 0;
 }
 
 @keyframes blinking {
   50% {border-color: transparent}
 }
-
-/* @media (max-width: 1050px) {
-  .topcontainer {
-    height: 85vw !important; 
-  }
-  .icons-foundation-version {
-    flex-direction: column;
-    width: 80% !important;
-    gap: 0 !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .m-e-r-n {
-    text-align: unset;
-  }
-  .icons-design-extras {
-    flex-direction: column;
-    width: 80% !important;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .icons-foundation {
-    justify-content: space-evenly !important;
-    width: 80vw;
-  }
-  .icons-design {
-    justify-content: space-between !important;
-  }
-
-} */
