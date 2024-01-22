@@ -46,6 +46,16 @@ const Skills = (props: any) => {
 
   const cvRef = useRef(null)
   const cvInView = useInView(cvRef, { amount: 1, once: true })
+
+  const copiedRef = useRef<any>(null)
+  const handleEmailClick = () => {
+    if (copiedRef.current != null) {
+      copiedRef.current.style.opacity = "1"
+      setTimeout(() => {
+        copiedRef.current.style.opacity = "0"
+      }, 1500)
+    }
+  }
   
   return (
     <motion.main>
@@ -54,9 +64,9 @@ const Skills = (props: any) => {
               <div className="topcontainer">
                 <div className="foundation-version-container">
                   <div className="foundation-container">
-                    <div>
+                    <div className="position-relative">
                       <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="foundation-heading">THE FOUNDATION:</motion.h2>
-                      <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >THE FOUNDATION: -</h2></motion.div>
+                      <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >THE FOUNDATION: -</h2></motion.div>
                       <motion.div initial="hideIcons" animate={iconFoundationInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1}} className="icons-foundation">
                         {
                           iconsFoundation.map((icon, index) => (
@@ -69,9 +79,9 @@ const Skills = (props: any) => {
                     </div>
                   </div>
                   <div className="mern-container">
-                    <div>
+                    <div className="position-relative">
                       <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="icons-mern-heading">SPECIALIZING IN:</motion.h2>
-                      <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >SPECIALIZING IN: -</h2></motion.div>
+                      <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >SPECIALIZING IN: -</h2></motion.div>
                       <motion.div initial="hideIcons" animate={iconFoundationInView ? "showIcons" : "hideIcons"} transition={{staggerChildren: 0.1, delayChildren: 0.4}}>
                         <div className="icons-mern">
                           {iconsMERN.map((icon, index) => (
@@ -92,9 +102,9 @@ const Skills = (props: any) => {
                 </div>
                 <div ref={iconDesignRef} className="design-extras-container">
                   <div className="design-container">
-                    <div>
+                    <div className="position-relative">
                       <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="design-heading">DESIGN TOOLS:</motion.h2>
-                      <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >DESIGN TOOLS: -</h2></motion.div>
+                      <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >DESIGN TOOLS: -</h2></motion.div>
                       <motion.div initial="hideIcons" animate={iconDesignInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1 }} className="icons-design">
                         {
                           iconsDesign.map((icon, index) => (
@@ -107,9 +117,9 @@ const Skills = (props: any) => {
                     </div>
                   </div>
                   <motion.div initial="hideIcons" animate={iconDesignInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1, delayChildren: 0.4 }} className="extras-container">
-                    <div>
+                    <div className="position-relative">
                       <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="extras-heading">EXTRAS:</motion.h2>
-                      <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >EXTRAS: -</h2></motion.div>
+                      <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >EXTRAS: -</h2></motion.div>
                       <div className="icons-extras">
                         {
                           iconsExtras.map((icon, index) => (
@@ -125,7 +135,7 @@ const Skills = (props: any) => {
                 <div className="version-container">
                   <div>
                     <motion.img initial={{ x: "50%", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true, amount: 0.6 }} className="profile-picture" src="public/profile-picture.jpg" alt="Profile picture" />
-                    <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >VERSION CONTROL: -</h2></motion.div>
+                    <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >VERSION CONTROL: -</h2></motion.div>
                     <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">VERSION CONTROL:</motion.h2>
                     <motion.div ref={versionRef} initial="hideIcons" animate={versionInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1 }} className="icons-version">
                       {
@@ -152,7 +162,7 @@ const Skills = (props: any) => {
                 </div>
                 <div>
                   <motion.div ref={cvRef} initial="hideIcons" animate={cvInView ? "showIcons" : "hideIcons"}className="cv position-relative">
-                    <motion.div initial={{ scaleY: 1.2, scaleX: 1, y: "-50%"}} whileInView={{ scaleX: 0, y: "-50%"}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >RESUME--</h2></motion.div>
+                    <motion.div initial={{ scaleY: 1.2, scaleX: 1, y: "-50%"}} whileInView={{ scaleX: 0, y: "-50%"}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >RESUME-</h2></motion.div>
                     <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">RESUME:</motion.h2>
                     <motion.div variants={iconAnimation} className="icon-container">
                       <a href="" target="_about">
@@ -161,7 +171,18 @@ const Skills = (props: any) => {
                     </motion.div>
                   </motion.div>
                   <div className="email">
-                    <motion.h2 onClick={() => navigator.clipboard.writeText('szuhaydv@gmail.com')} initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="email-heading">EMAIL: <span>szuhaydv@gmail.com</span></motion.h2>
+                    <motion.h2 
+                      onClick={() => {
+                        navigator.clipboard.writeText('szuhaydv@gmail.com')
+                        handleEmailClick()
+                      }} 
+                      initial={{ y: 30, opacity: 0 }} 
+                      whileInView={{ y: 0, opacity: 1 }} 
+                      transition={{ delay: 0.1, type: "spring", duration: 0.25 }} 
+                      viewport={{ once: true, amount: 0 }} 
+                      className="email-heading">
+                        EMAIL: <span className="span-one">szuhaydv@gmail.com<span ref={copiedRef} className="span-animation">Copied!</span></span>
+                    </motion.h2>
                   </div>
                 </div>
 

@@ -83,7 +83,7 @@ const Projects = (props: any) => {
                 </a>
               </div>
               <div className="pitch-description">
-                A gorgeous site made exciting with a bunch of cool animations, parallax scrolling & more!
+                A gorgeous site made exciting with a bunch of cool animations, parallax scrolling & more! 👏
                 <div className="d-flex justify-content-center">
                   <ul>
                   <li>Animations by 'Framer Motion'</li>

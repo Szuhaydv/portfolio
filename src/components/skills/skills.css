@@ -95,8 +95,11 @@ main .version-heading {
   transform-origin: right;
   z-index: 10;
 }
+.heading-cover {
+  top: 0%;
+}
 .heading-cover-2 {
-  left: 50%;
+  top: 0%;
 }
 
 .heading-cover h2, .heading-cover-2 h2 {
@@ -196,7 +199,7 @@ main .icons-extras {
 .email {
   margin-top: 2rem;
 }
-.email span {
+.email .span-one {
   font-family: 'Exo 2';
   margin-left: 0.5rem;
   font-size: 34px;
@@ -204,9 +207,10 @@ main .icons-extras {
   background-color: white;
   border: 1px solid #222;
   border-radius: 20px;
-  margin-top: 16px
+  margin-top: 16px;
+  position: relative;
 }
-.email span:active {
+.email .span-one:active {
   background-color: rgb(220, 218, 213);
 }
 .email-heading {
@@ -215,6 +219,16 @@ main .icons-extras {
 .detector-2 {
   position: absolute;
   bottom: 10vh;
+}
+.email .span-animation {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 110%;
+  font-size: 26px;
+  opacity: 0;
+  transition: 0.5s;
+  color: green
 }
 
 @media only screen and (max-width: 1250px) {
@@ -231,6 +245,7 @@ main .icons-extras {
   .foundation-container, .mern-container, .design-container, .extras-container, .version-container {
     width: 100%;
     display: flex;
+    position: relative;
     justify-content: center;
     text-align: center;
   }
@@ -248,12 +263,20 @@ main .icons-extras {
   .email {
     text-align: center;
   }
-  .email span {
+  .email .span-one {
     display: block;
     width: max-content;
     padding-left: 1vw;
     margin-left: auto;
     margin-right: auto;
+  }
+  .email .span-animation {
+    position: absolute;
+    right: -40%;
+    font-size: 26px;
+    opacity: 0;
+    transition: 0.5s;
+    color: green
   }
   .profile-picture {
     display: none;
@@ -277,7 +300,23 @@ main .icons-extras {
   .projects {
     margin-top: 80vh !important;
   }
+  main .extras-container .heading-cover-2 {
+    left: 25%;
+  }
+  .cv .heading-cover {
+    top: 25%;
+  }
 }
+@media only screen and (max-width: 1000px) {
+  .heading-cover, .heading-cover-2 {
+    display: none !important;
+  }
+  .email .span-animation {
+    left: 0%;
+    top: 110%;
+  }
+}
+
 
 @media only screen and (max-width: 600px) {
   .topcontainer {
@@ -294,7 +333,7 @@ main .icons-extras {
   .foundation-version-container, .design-extras-container {
     gap: 10vh;
   }
-  .email span {
+  .email .span-one {
     font-size: 26px;
     color: black;
   }

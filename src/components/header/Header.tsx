@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './header.css'
 
 const Header = () => {
@@ -8,19 +8,32 @@ const Header = () => {
       hamburgerNav.current.classList.toggle("showHamburgerMenu")
     }
   }
+  let vhHeight: any = null
+  let scrollToSkills: any = null
+  let scrollToProjects: any = null
+  let scrollToContact: any = null
+
+  useEffect(() => {
+    vhHeight= document.querySelector('header')?.offsetHeight
+    scrollToSkills = vhHeight * 4.52
+    scrollToProjects = scrollToSkills * 3.8
+    scrollToContact = scrollToSkills * 9.4
+  })
+  
+  
   return (
     <header>
       <nav className="header-links">
         <a href="#home">
           <h2>Home</h2>
         </a>
-        <a href="#skills">
+        <a href='#skills'onClick={() => window.scrollTo(0,scrollToSkills)}>
           <h2>Skills</h2>
         </a>
-        <a href="#projects">
+        <a onClick={() => window.scrollTo(0, scrollToProjects)}>
           <h2>Projects</h2>
         </a>
-        <a href="#contact">
+        <a onClick={() => window.scrollTo(0, scrollToContact)}>
           <h2>Contact</h2>
         </a>
       </nav>
@@ -31,13 +44,22 @@ const Header = () => {
         <a onClick={() => handleHamburgerClick()} href="#home">
           <h2>Home</h2>
         </a>
-        <a onClick={() => handleHamburgerClick()} href="#skills">
+        <a onClick={() => {
+          handleHamburgerClick()
+          window.scrollTo({ top: scrollToSkills })
+        }}>
           <h2>Skills</h2>
         </a>
-        <a onClick={() => handleHamburgerClick()} href="#projects">
+        <a onClick={() => {
+          handleHamburgerClick()
+          window.scrollTo({ top: scrollToProjects })
+          }}>
           <h2>Projects</h2>
         </a>
-        <a onClick={() => handleHamburgerClick()} href="#contact">
+        <a onClick={() => {
+          handleHamburgerClick()
+          window.scrollTo({ top: scrollToContact })
+          }}>
           <h2>Contact</h2>
         </a>
       </nav>
