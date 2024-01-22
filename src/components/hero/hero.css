@@ -63,12 +63,12 @@
 
 @media only screen and (max-width: 600px) {
   .title-text-container, .special-title-text {
-    left: 36%;
     width: 64%;
-    top: 25%;
+    top: 15%;
+    left: 38%;
   }
   .hello-text-container {
-    left: 15%;
-    top: 25%;
+    top: 15%;
+    left: 18%;
   }
 }

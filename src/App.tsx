@@ -1,8 +1,9 @@
-import { Variants, motion, useInView, useScroll, useTransform } from "framer-motion"
+import { Variants, motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState } from "react"
 import emailjs from '@emailjs/browser'
 import Header from "./components/header/Header"
 import Hero from "./components/hero/Hero"
+import Skills from "./components/skills/Skills"
 
 function App() {
 
@@ -19,64 +20,18 @@ function App() {
     [1, 0]
   )
 
-  const sectionScroll = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", "-50%"]
-  )
   const characterScroll = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", "100%"]
-  )
-  const nextSectionScroll = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", "-50%"]
+    ["0%", "100vh"]
   )
 
-  
-  
-  const iconAnimation = {
-    hideIcons: {
-      scale: 0
-    },
-    showIcons: {
-      scale: [0, 1, 1, 1],
-      rotate: [0, 5, 0, 0]
-    }
-  }
 
   
-  const iconFoundationRef = useRef(null)
-  const iconFoundationInView = useInView(iconFoundationRef, { amount: 1, once: true })
-  const iconsFoundation = [["html", "HTML"],["css", "CSS"],["javascript", "JavaScript"]] 
-  const iconsMERN = [["mongodb", "MongoDB"], ["express", "ExpressJS"], ["react", "React"], ["nodejs", "NodeJS"]]
 
-  const versionRef = useRef(null)
-  const versionInView = useInView(versionRef, { amount: 1, once: true })
-  const iconsVersion = [["git", "Git"],["github", "GitHub"]]
   
-  const iconDesignRef = useRef(null)
-  const iconDesignInView = useInView(iconDesignRef, {amount: 1, once: true })
-  const iconsDesign = [["figma", "Figma"], ["inkscape", "Inkscape"], ["gimp", "GIMP"]]
-  const iconsExtras = [["vite", "Vite"], ["mysql", "MySQL"], ["c", "C"], ["python", "Python"]]
 
-  const mernRef = useRef(null)
-  const mernInView = useInView(mernRef, { amount: 1, once: true })
-  const mernAnimate = {
-    showMern: {
-      fontSize: "4.5vw",
-      transform: "translateX(0%)"
-    },
-    hideMern: {
-      fontSize: "1.5vw",
-      transform: "translateX(100%)"
-    }
-  }
-
-  const cvRef = useRef(null)
-  const cvInView = useInView(cvRef, { amount: 1, once: true })
+  
 
   const [projectsInView, setProjectsInView] = useState(false)
   const [contactInView, setContactInView] = useState(false)
@@ -140,111 +95,13 @@ function App() {
       <div className="projects-detector" id="projects"></div>
       <Header />
       <div ref={firstThreeRef} className="first-three">
-        <Hero value={{ opacity2, sectionScroll, characterScroll }} />
-        <motion.main style={{ }}>
-          <motion.div style={{ bottom: characterScroll }} className="main-parallax">
-            <motion.div onViewportEnter={() => setProjectsInView(false)} className="detector-2"></motion.div>
-              <div className="topcontainer">
-                <motion.div className="foundation-version-headings">
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="foundation-heading">THE FOUNDATION:</motion.h2>
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >THE FOUNDATION: -</h2></motion.div>
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="icons-mern-heading">SPECIALIZING IN:</motion.h2>
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >SPECIALIZING IN: -</h2></motion.div>
-                </motion.div>
-                <motion.div initial="hideIcons" animate={iconFoundationInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1}} className="icons-foundation-version">
-                  <div className="icons-foundation">
-                    {
-                      iconsFoundation.map((icon, index) => (
-                        <motion.div key={index} ref={index === 0 ? iconFoundationRef : undefined} variants={iconAnimation} className="icon-container">
-                          <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                        </motion.div>
-                      ))
-                    }
-                  </div>
-                  <div>
-                    <div className="icons-mern">
-                      {iconsMERN.map((icon, index) => (
-                        <motion.div key={index} variants={iconAnimation} className="icon-container">
-                          <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                        </motion.div>
-                      ))}
-                    </div>
-                    <motion.h2 ref={mernRef} initial="hideMern" animate={mernInView ? "showMern" : "hideMern"} transition={{staggerChildren: 0.3}} className="m-e-r-n">
-                      <motion.span variants={mernAnimate} className="span1">M </motion.span> 
-                      <motion.span variants={mernAnimate} className="span2">E </motion.span> 
-                      <motion.span variants={mernAnimate} className="span3">R </motion.span> 
-                      <motion.span variants={mernAnimate} className="span4">N </motion.span>
-                    </motion.h2>
-                  </div>
-                </motion.div>
-                <div className="d-flex icons-design-extras-heading">
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="design-heading">DESIGN TOOLS:</motion.h2>
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >DESIGN TOOLS: -</h2></motion.div>
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="extras-heading">EXTRAS:</motion.h2>
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover-2"><h2 aria-hidden="true" >EXTRAS: -</h2></motion.div>
-                </div>
-                <motion.div ref={iconDesignRef} initial="hideIcons" animate={iconDesignInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1 }} className="icons-design-extras">
-                  <div className="icons-design">
-                    {
-                      iconsDesign.map((icon, index) => (
-                        <motion.div key={index} variants={iconAnimation} className="icon-container">
-                          <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                        </motion.div>
-                      ))
-                    }
-                  </div>
-                  <div className="icons-extras">
-                    {
-                      iconsExtras.map((icon, index) => (
-                        <motion.div key={index} variants={iconAnimation} className="icon-container">
-                          <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                        </motion.div>
-                      ))
-                    }
-                  </div>
-                </motion.div>
-                <div className="position-relative">
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >VERSION CONTROL: -</h2></motion.div>
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">VERSION CONTROL:</motion.h2>
-                </div>
-                <motion.div ref={versionRef} initial="hideIcons" animate={versionInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1 }} className="icons-version">
-                    {
-                      iconsVersion.map((icon, index) => {
-                        if (icon[0] === "github") {
-                          return (
-                            <a key={index} target="_blank" href="https://github.com/Szuhaydv">
-                              <motion.div variants={iconAnimation} className="icon-container">
-                                <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                              </motion.div>
-                            </a>
-                          )
-                        } else
-                        return (
-                        <motion.div key={index} variants={iconAnimation} className="icon-container">
-                          <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
-                        </motion.div>
-                        )
-                    })
-                    }
-                </motion.div>
-                <motion.div ref={cvRef} initial="hideIcons" animate={cvInView ? "showIcons" : "hideIcons"}className="cv position-relative d-flex">
-                  <motion.div initial={{ scaleY: 1.2, scaleX: 1, y: "-50%"}} whileInView={{ scaleX: 0, y: "-50%"}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >CURRICULUM VIT</h2></motion.div>
-                  <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">CURRICULUM VITAE:</motion.h2>
-                  <motion.div variants={iconAnimation} className="icon-container">
-                    <a href="" target="_about">
-                      <img src="https://cdn-icons-png.flaticon.com/512/7471/7471457.png?uid=R104716327&ga=GA1.1.1237044025.1704978951&" alt="Resume icon" />
-                    </a>
-                  </motion.div>
-                </motion.div>
-              </div>
-          </motion.div>
-        </motion.main>
+        <Hero value={{ opacity2, characterScroll }} />
+        <Skills value={{ characterScroll, setProjectsInView }}/>
       </div>
-      {/* <motion.div variants={showcaseAnimate} transition={{duration: 0.5}} initial="relativeContainer" animate={projectsInView ? "fixedContainer" : contactInView ? "absoluteContainer" : "staticContainer"} className="project-showcase-container">
+      <motion.div variants={showcaseAnimate} transition={{duration: 0.5}} initial="relativeContainer" animate={projectsInView ? "fixedContainer" : contactInView ? "absoluteContainer" : "staticContainer"} className="project-showcase-container">
       <iframe width="100%" height="100%" src={videoURLs[videoURLNo]} allowFullScreen title="Mapex Demo"></iframe>
       </motion.div>
-      <motion.section style={{y: sectionScroll}} className="projects">
-      <motion.img initial={{ x: 70, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ type: "spring", duration: 0.5 }} viewport={{ once: true, amount: 0.6 }} className="profile-picture" src="/profile-picture.jpg" alt="Profile picture" />
+      <motion.section style={{ bottom: characterScroll }} className="projects">
         <div className="project-1">
           <div className="project-info-container">
             <motion.div style={{display: "block"}} className="take-space"></motion.div>
@@ -310,14 +167,19 @@ function App() {
           </div>
         </div>
       </motion.section>
-      <motion.section style={{y: sectionScroll}} ref={contactRef} 
-      onViewportEnter={() => {
-        setProjectsInView(false)
-        setContactInView(true)
-      }} 
-      onViewportLeave={() => {
-        setContactInView(false)
-      }} className="contact" id="contact">
+      <motion.section 
+        style={{ bottom: characterScroll }}
+        ref={contactRef} 
+        onViewportEnter={() => {
+          setProjectsInView(false)
+          setContactInView(true)
+        }} 
+        onViewportLeave={() => {
+          setContactInView(false)
+        }}
+        className="contact" 
+        id="contact"
+      >
         <div className="about-me">
           <h2>A LITTLE ABOUT ME...</h2>
           <p>"Dream big, work hard, achieve!"</p>
@@ -350,7 +212,7 @@ function App() {
           </div>
           <motion.img initial={{ y: 70, opacity: 0}} animate={frameInView ? {y: 0, opacity: 1} : {}} transition={{ stiffness: 100, delay: 0.25, duration: 1, type: "backInOut"}} viewport={{amount: 1, once: true}} className="bottom-frame" src="/bottom-frame.svg" alt="" />
         </div>
-      </motion.section> */}
+      </motion.section>
     </div>
   )
 }
