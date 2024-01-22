@@ -71,7 +71,7 @@ const Skills = (props: any) => {
                         {
                           iconsFoundation.map((icon, index) => (
                             <motion.div key={index} ref={index === 0 ? iconFoundationRef : undefined} variants={iconAnimation} className="icon-container">
-                              <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                              <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                             </motion.div>
                           ))
                         }
@@ -86,7 +86,7 @@ const Skills = (props: any) => {
                         <div className="icons-mern">
                           {iconsMERN.map((icon, index) => (
                             <motion.div key={index} variants={iconAnimation} className="icon-container">
-                              <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                              <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                             </motion.div>
                           ))}
                         </div>
@@ -109,7 +109,7 @@ const Skills = (props: any) => {
                         {
                           iconsDesign.map((icon, index) => (
                             <motion.div key={index} variants={iconAnimation} className="icon-container">
-                              <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                              <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                             </motion.div>
                           ))
                         }
@@ -124,7 +124,7 @@ const Skills = (props: any) => {
                         {
                           iconsExtras.map((icon, index) => (
                             <motion.div key={index} variants={iconAnimation} className="icon-container">
-                              <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                              <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                             </motion.div>
                           ))
                         }
@@ -134,7 +134,7 @@ const Skills = (props: any) => {
                 </div>
                 <div className="version-container">
                   <div>
-                    <motion.img initial={{ x: "50%", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true, amount: 0.6 }} className="profile-picture" src="public/profile-picture.jpg" alt="Profile picture" />
+                    <motion.img initial={{ x: "50%", opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }} viewport={{ once: true, amount: 0.6 }} className="profile-picture" src="/profile-picture.jpg" alt="Profile picture" />
                     <motion.div initial={{ scaleY: 1.3, scaleX: 1}} whileInView={{ scaleX: 0}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >VERSION CONTROL: -</h2></motion.div>
                     <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">VERSION CONTROL:</motion.h2>
                     <motion.div ref={versionRef} initial="hideIcons" animate={versionInView ? "showIcons" : "hideIcons"} transition={{ staggerChildren: 0.1 }} className="icons-version">
@@ -144,14 +144,14 @@ const Skills = (props: any) => {
                             return (
                               <a key={index} target="_blank" href="https://github.com/Szuhaydv">
                                 <motion.div variants={iconAnimation} className="icon-container">
-                                  <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                                  <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                                 </motion.div>
                               </a>
                             )
                           } else
                           return (
                           <motion.div key={index} variants={iconAnimation} className="icon-container">
-                            <img src={`public/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
+                            <img src={`/icons/${icon[0]}.svg`} alt={`${icon[1]} logo svg`} />
                           </motion.div>
                           )
                       })

@@ -52,8 +52,6 @@ function App() {
 
   return (
     <div className="sections" id="home">
-      <div className="skills"></div>
-      {/* <div className="projects-detector" id="projects"></div> */}
       <Header />
       <div ref={firstThreeRef} className="first-three">
         <Hero value={{ opacity2, characterScroll }} />
@@ -64,7 +62,6 @@ function App() {
       </motion.div>
       <Projects value={{characterScroll, setVideoURLNo, setProjectsInView}}/>
       <Contact value={{setContactInView, characterScroll, setProjectsInView}}/>
-      
     </div>
   )
 }
