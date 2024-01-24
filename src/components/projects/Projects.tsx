@@ -14,12 +14,12 @@ const Projects = (props: any) => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ amount: 0.65 }} className="project-desciption">
               <div className="d-flex align-items-center project-name-container">
                 <motion.h3 onViewportEnter={() => setVideoURLNo(0)}>MAPEX</motion.h3>
-                <a href="">
+                <a href="https://mapexsite.netlify.app/" target='_blank'>
                   <div className="icon-container">
                     <img src="https://cdn-icons-png.flaticon.com/512/6994/6994770.png?uid=R104716327&ga=GA1.1.1237044025.1704978951&" alt="Icon of a link" />
                   </div>
                 </a>
-                <a href="">
+                <a href="https://github.com/Szuhaydv?tab=repositories&q=mapex&type=&language=&sort=" target='_blank'>
                   <div className="icon-container">
                     <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png?uid=R104716327&ga=GA1.1.1237044025.1704978951&" alt="Icon of GitHub logo" />
                   </div>
@@ -76,7 +76,7 @@ const Projects = (props: any) => {
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ amount: 0.65 }} className="project-desciption">
               <div className="d-flex align-items-center project-name-container">
                 <motion.h3 onViewportEnter={() => setVideoURLNo(2)}>PORTFOLIO</motion.h3>
-                <a href="">
+                <a href="https://github.com/Szuhaydv/portfolio" target='_blank'>
                   <div className="icon-container">
                     <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png?uid=R104716327&ga=GA1.1.1237044025.1704978951&" alt="Icon of GitHub logo" />
                   </div>
