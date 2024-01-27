@@ -165,7 +165,7 @@ const Skills = (props: any) => {
                     <motion.div initial={{ scaleY: 1.2, scaleX: 1, y: "-50%"}} whileInView={{ scaleX: 0, y: "-50%"}} transition={{ type: "spring", duration: 1 }} viewport={{ once: true, amount: 1 }} className="heading-cover"><h2 aria-hidden="true" >RESUME-</h2></motion.div>
                     <motion.h2 initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1, type: "spring", duration: 0.25 }} viewport={{ once: true, amount: 0 }} className="version-heading">RESUME:</motion.h2>
                     <motion.div variants={iconAnimation} className="icon-container">
-                      <a href="" target="_about">
+                      <a href="https://drive.google.com/file/d/1pcAkT_UcJI7twiM7xoq6fgxh6MSEe5Mt/view?usp=sharing" target="_about">
                         <img src="https://cdn-icons-png.flaticon.com/512/7471/7471457.png?uid=R104716327&ga=GA1.1.1237044025.1704978951&" alt="Resume icon" />
                       </a>
                     </motion.div>
